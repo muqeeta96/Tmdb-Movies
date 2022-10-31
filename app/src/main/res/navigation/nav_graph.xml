@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/movieFragment">
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="com.example.tmdb.ui.fragments.movieList.MovieFragment"
+        android:label="Movies">
+        <action
+            android:id="@+id/action_movieFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_movieFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.tmdb.ui.fragments.detail.DetailFragment"
+        android:label="Movie Detail">
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_detailFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.tmdb.ui.fragments.favorite.FavoriteFragment"
+        android:label="Favorites">
+        <action
+            android:id="@+id/action_favoriteFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+</navigation>
